@@ -1,0 +1,15 @@
+[package]
+name = "distribution"
+version = "1.0.0"
+authors = ["Micha Vie <micha@freeiam.com>", "Superciety <hello@superciety.com>"]
+edition = "2018"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.elrond-wasm]
+version = "0.23.1"
+
+[dev-dependencies.elrond-wasm-debug]
+version = "0.23.1"
