@@ -5,11 +5,12 @@
 #![no_std]
 
 elrond_wasm_node::wasm_endpoints! {
-    adder
+    distribution
     (
         init
-        add
-        getSum
+        buy
+        deposit
+        updatePrice
     )
 }
 
