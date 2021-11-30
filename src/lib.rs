@@ -29,6 +29,7 @@ pub trait Distribution {
     #[payable("EGLD")]
     #[endpoint]
     fn buy(&self, #[payment_amount] paid_amount: BigUint) -> SCResult<()> {
+        require!(paid_amount != 0, "zero really");
         let caller = self.blockchain().get_caller();
         let dist_token_id = self.distributable_token_id().get();
         let price_per_token = self.distributable_token_price().get();
