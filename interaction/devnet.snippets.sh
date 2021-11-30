@@ -4,7 +4,7 @@ DEPLOY_TRANSACTION=$(erdpy data load --partition devnet --key=deploy-transaction
 PROXY=https://devnet-api.elrond.com
 
 DISTRIBUTABLE_TOKEN_ID=0x5853555045522d373261313564 # XSUPER-72a15d
-DISTRIBUTABLE_TOKEN_PRICE=000020000000000000 # 0.00002 EGLD
+DISTRIBUTABLE_TOKEN_PRICE=20000000000000 # 0.00002 EGLD
 
 deploy() {
     echo "building contract ..."

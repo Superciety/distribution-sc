@@ -1,0 +1,62 @@
+{
+  "steps": [
+    {
+      "step": "externalSteps",
+      "path": "init.scen.json"
+    },
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:alice",
+        "to": "sc:main",
+        "function": "updatePrice",
+        "arguments": ["10000000000000"],
+        "gasLimit": "100,000,000",
+        "gasPrice": "0"
+      },
+      "expect": {
+        "status": "4",
+        "message": "str:Endpoint can only be called by owner"
+      }
+    },
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:owner",
+        "to": "sc:main",
+        "function": "updatePrice",
+        "arguments": ["20000000000000"],
+        "gasLimit": "100,000,000",
+        "gasPrice": "0"
+      },
+      "expect": {
+        "status": ""
+      }
+    },
+    {
+      "step": "checkState",
+      "accounts": {
+        "address:owner": {
+          "nonce": "2",
+          "balance": "*",
+          "storage": {},
+          "esdt": "*"
+        },
+        "address:alice": {
+          "nonce": "1",
+          "balance": "*",
+          "esdt": "*"
+        },
+        "sc:main": {
+          "nonce": "0",
+          "balance": "0",
+          "code": "file:../output/distribution.wasm",
+          "storage": {
+            "str:distributablePrice": "20000000000000",
+            "+": ""
+          }
+        }
+      }
+    }
+  ]
+}
