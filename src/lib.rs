@@ -6,8 +6,8 @@ elrond_wasm::imports!();
 pub trait Distribution {
     #[init]
     fn init(&self, dist_token_id: TokenIdentifier, dist_token_price: BigUint) -> SCResult<()> {
-        self.distributable_token_id().set(&dist_token_id);
-        self.distributable_token_price().set(&dist_token_price);
+        self.distributable_token_id().set_if_empty(&dist_token_id);
+        self.distributable_token_price().set_if_empty(&dist_token_price);
         Ok(())
     }
 
