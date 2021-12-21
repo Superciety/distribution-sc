@@ -9,7 +9,6 @@ wallets/*
 **/node_modules
 **/output/**
 **/testnet/**
-**/erdpy.data-storage.json
 **/*.interaction.json
 
 # python
