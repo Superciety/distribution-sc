@@ -5,10 +5,9 @@ elrond_wasm::imports!();
 #[elrond_wasm::contract]
 pub trait Distribution {
     #[init]
-    fn init(&self, dist_token_id: TokenIdentifier, dist_token_price: BigUint) -> SCResult<()> {
+    fn init(&self, dist_token_id: TokenIdentifier, dist_token_price: BigUint) {
         self.distributable_token_id().set_if_empty(&dist_token_id);
         self.distributable_token_price().set_if_empty(&dist_token_price);
-        Ok(())
     }
 
     #[only_owner]
