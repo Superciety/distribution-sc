@@ -5,7 +5,7 @@ PROXY=https://testnet-gateway.elrond.com
 CHAIN_ID="T"
 
 DISTRIBUTABLE_TOKEN_ID=0x # super token id
-DISTRIBUTABLE_TOKEN_PRICE=20000000000000 # 0.00002 EGLD
+DISTRIBUTABLE_TOKEN_PRICE=100000000000000 # 0.0001 EGLD
 
 ##### - configuration end - #####
 
@@ -70,5 +70,17 @@ deposit() {
         --arguments ${DISTRIBUTABLE_TOKEN_ID} $1 $method_name \
         --proxy=${PROXY} \
         --chain=${CHAIN_ID} \
+        --send || return
+}
+
+updatePrice() {
+    erdpy --verbose contract call ${ADDRESS} \
+        --recall-nonce \
+        --pem=${DEPLOYER} \
+        --gas-limit=5000000 \
+        --function="updatePrice" \
+        --arguments $DISTRIBUTABLE_TOKEN_PRICE \
+        --proxy=$PROXY \
+        --chain=$CHAIN_ID \
         --send || return
 }
