@@ -13,6 +13,10 @@ ADDRESS=$(erdpy data load --partition ${NETWORK_NAME} --key=address)
 DEPLOY_TRANSACTION=$(erdpy data load --partition ${NETWORK_NAME} --key=deploy-transaction)
 
 deploy() {
+
+    echo "accidental deploy protection is activated."
+    exit 1;
+
     echo "building contract for deployment ..."
     erdpy --verbose contract build
 
