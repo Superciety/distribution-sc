@@ -1,0 +1,62 @@
+{
+  "steps": [
+    {
+      "step": "externalSteps",
+      "path": "init.scen.json"
+    },
+    {
+      "step": "externalSteps",
+      "path": "buy.scen.json"
+    },
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:alice",
+        "to": "sc:main",
+        "function": "claim",
+        "gasLimit": "100,000,000",
+        "gasPrice": "0"
+      },
+      "expect": {
+        "status": "4",
+        "message": "str:Endpoint can only be called by owner"
+      }
+    },
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:owner",
+        "to": "sc:main",
+        "function": "claim",
+        "arguments": [],
+        "gasLimit": "100,000,000",
+        "gasPrice": "0"
+      },
+      "expect": {
+        "status": ""
+      }
+    },
+    {
+      "step": "checkState",
+      "accounts": {
+        "address:owner": {
+          "nonce": "3",
+          "balance": "1,010,000,000,000,000,000",
+          "storage": {},
+          "esdt": {
+            "str:XSUPER": "300"
+          }
+        },
+        "sc:main": {
+          "nonce": "0",
+          "balance": "0",
+          "code": "file:../output/distribution.wasm",
+          "esdt": {
+            "str:XSUPER": "150"
+          }
+        },
+        "+": {}
+      }
+    }
+  ]
+}

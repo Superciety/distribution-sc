@@ -25,6 +25,19 @@ pub trait Distribution {
         Ok(())
     }
 
+    #[only_owner]
+    #[endpoint(claim)]
+    fn claim(&self) -> SCResult<()> {
+        let caller = self.blockchain().get_caller();
+        let balance = self.blockchain().get_sc_balance(&TokenIdentifier::egld(), 0);
+
+        require!(balance > 0, "no funds to claim");
+
+        self.send().direct(&caller, &TokenIdentifier::egld(), 0, &balance, &[]);
+
+        Ok(())
+    }
+
     #[payable("EGLD")]
     #[endpoint]
     fn buy(&self, #[payment_amount] paid_amount: BigUint) -> SCResult<()> {

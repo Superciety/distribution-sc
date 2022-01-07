@@ -9,6 +9,7 @@ elrond_wasm_node::wasm_endpoints! {
     (
         init
         buy
+        claim
         deposit
         updatePrice
     )

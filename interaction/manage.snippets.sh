@@ -84,3 +84,14 @@ updatePrice() {
         --chain=$CHAIN_ID \
         --send || return
 }
+
+claim() {
+    erdpy --verbose contract call ${ADDRESS} \
+        --recall-nonce \
+        --pem=${DEPLOYER} \
+        --gas-limit=5000000 \
+        --function="claim" \
+        --proxy=$PROXY \
+        --chain=$CHAIN_ID \
+        --send || return
+}
