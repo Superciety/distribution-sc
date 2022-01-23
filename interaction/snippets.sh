@@ -5,7 +5,7 @@ PROXY=https://testnet-gateway.elrond.com
 CHAIN_ID="T"
 
 DISTRIBUTABLE_TOKEN_ID=0x # super token id
-DISTRIBUTABLE_TOKEN_PRICE=100000000000000 # 0.0001 EGLD
+DISTRIBUTABLE_TOKEN_PRICE=200000000000000 # 0.0002 EGLD
 
 ##### - configuration end - #####
 
