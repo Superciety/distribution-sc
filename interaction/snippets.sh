@@ -99,3 +99,26 @@ claim() {
         --chain=$CHAIN_ID \
         --send || return
 }
+
+pause() {
+    erdpy --verbose contract call ${ADDRESS} \
+        --recall-nonce \
+        --pem=${DEPLOYER} \
+        --gas-limit=5000000 \
+        --function="pause" \
+        --proxy=$PROXY \
+        --chain=$CHAIN_ID \
+        --send || return
+}
+
+unpause() {
+    erdpy --verbose contract call ${ADDRESS} \
+        --recall-nonce \
+        --pem=${DEPLOYER} \
+        --gas-limit=5000000 \
+        --function="unpause" \
+        --proxy=$PROXY \
+        --chain=$CHAIN_ID \
+        --send || return
+}
+
