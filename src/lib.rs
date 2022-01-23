@@ -2,8 +2,10 @@
 
 elrond_wasm::imports!();
 
+mod pause;
+
 #[elrond_wasm::contract]
-pub trait Distribution {
+pub trait Distribution: pause::PauseModule {
     #[init]
     fn init(&self, dist_token_id: TokenIdentifier, dist_token_price: BigUint) {
         self.distributable_token_id().set_if_empty(&dist_token_id);
@@ -42,6 +44,8 @@ pub trait Distribution {
     #[endpoint]
     fn buy(&self, #[payment_amount] paid_amount: BigUint) -> SCResult<()> {
         require!(paid_amount != 0, "zero really");
+        require!(self.not_paused(), "sale is paused");
+
         let caller = self.blockchain().get_caller();
         let dist_token_id = self.distributable_token_id().get();
         let price_per_token = self.distributable_token_price().get();

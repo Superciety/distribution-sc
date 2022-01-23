@@ -11,6 +11,9 @@ elrond_wasm_node::wasm_endpoints! {
         buy
         claim
         deposit
+        isPaused
+        pause
+        unpause
         updatePrice
     )
 }
