@@ -128,3 +128,16 @@ unpause() {
         --send || return
 }
 
+# params:
+#   $1 = limit price
+updateBuyLimit() {
+    erdpy --verbose contract call ${ADDRESS} \
+        --recall-nonce \
+        --pem=${DEPLOYER} \
+        --gas-limit=5000000 \
+        --function="updateBuyLimit" \
+        --arguments $1 \
+        --proxy=$PROXY \
+        --chain=$CHAIN_ID \
+        --send || return
+}
