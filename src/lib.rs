@@ -28,7 +28,7 @@ pub trait Distribution: pause::PauseModule {
 
     #[only_owner]
     #[payable("*")]
-    #[endpoint]
+    #[endpoint(deposit)]
     fn deposit_endpoint(&self, #[payment_token] token: TokenIdentifier) -> SCResult<()> {
         require!(token == self.distributable_token_id().get(), "invalid token");
         Ok(())
@@ -48,7 +48,7 @@ pub trait Distribution: pause::PauseModule {
     }
 
     #[payable("EGLD")]
-    #[endpoint]
+    #[endpoint(buy)]
     fn buy_endpoint(&self, #[payment_amount] paid_amount: BigUint) -> SCResult<()> {
         require!(paid_amount != 0, "zero really");
         require!(self.not_paused(), "sale is paused");

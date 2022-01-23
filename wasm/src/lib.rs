@@ -8,9 +8,9 @@ elrond_wasm_node::wasm_endpoints! {
     distribution
     (
         init
-        buy_endpoint
+        buy
         claim
-        deposit_endpoint
+        deposit
         getBuyLimit
         getDistributablePrice
         getDistributableTokenId
