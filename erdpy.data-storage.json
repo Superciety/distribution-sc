@@ -1,10 +1,14 @@
 {
-    "testnet": {
-        "address": "erd1qqqqqqqqqqqqqpgq5gt0hcs9s68qela3ju0tsncuu32w6emc27rs4tcfvp",
-        "deploy-transaction": "f294b20426b46d384ce34b9f55edb4878a1e15518650ab9a752d9775ae8da7cf"
-    },
-    "mainnet": {
-        "address": "erd1qqqqqqqqqqqqqpgqaqysetv6704mmktdyylzh08rtluquhpd27rsdkgh63",
-        "deploy-transaction": "cb8290a8f7002a8571a17b50877c167ffc65c27ea5da7db6fdcdf5a9aef2ecd4"
-    }
+  "devnet": {
+    "address": "erd1qqqqqqqqqqqqqpgqqv0rzcldvn4hrrwvjzgxgnmc9qj4dsrdyt2sx5z3vh",
+    "deploy-transaction": "677ea522f8fcbdc8f63f3462fdefd0f8cbb33731945d7f7be00882d7f8fdf53c"
+  },
+  "testnet": {
+    "address": "erd1qqqqqqqqqqqqqpgq5gt0hcs9s68qela3ju0tsncuu32w6emc27rs4tcfvp",
+    "deploy-transaction": "f294b20426b46d384ce34b9f55edb4878a1e15518650ab9a752d9775ae8da7cf"
+  },
+  "mainnet": {
+    "address": "erd1qqqqqqqqqqqqqpgqaqysetv6704mmktdyylzh08rtluquhpd27rsdkgh63",
+    "deploy-transaction": "cb8290a8f7002a8571a17b50877c167ffc65c27ea5da7db6fdcdf5a9aef2ecd4"
+  }
 }
