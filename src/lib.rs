@@ -71,12 +71,15 @@ pub trait Distribution: pause::PauseModule {
         Ok(())
     }
 
+    #[view(getDistributableTokenId)]
     #[storage_mapper("distributableToken")]
     fn distributable_token_id(&self) -> SingleValueMapper<TokenIdentifier>;
 
+    #[view(getDistributablePrice)]
     #[storage_mapper("distributablePrice")]
     fn distributable_token_price(&self) -> SingleValueMapper<BigUint>;
 
+    #[view(getBuyLimit)]
     #[storage_mapper("buyLimit")]
     fn buy_limit(&self) -> SingleValueMapper<BigUint>;
 }

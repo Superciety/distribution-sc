@@ -8,9 +8,12 @@ elrond_wasm_node::wasm_endpoints! {
     distribution
     (
         init
-        buy
+        buy_endpoint
         claim
-        deposit
+        deposit_endpoint
+        getBuyLimit
+        getDistributablePrice
+        getDistributableTokenId
         isPaused
         pause
         unpause
