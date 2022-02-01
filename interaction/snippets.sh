@@ -108,6 +108,20 @@ claim() {
         --send || return
 }
 
+# params:
+#   $1 = amount
+claimDistributable() {
+    erdpy --verbose contract call ${ADDRESS} \
+        --recall-nonce \
+        --pem=${DEPLOYER} \
+        --gas-limit=5000000 \
+        --function="claimDistributable" \
+        --arguments $1 \
+        --proxy=$PROXY \
+        --chain=$CHAIN_ID \
+        --send || return
+}
+
 pause() {
     erdpy --verbose contract call ${ADDRESS} \
         --recall-nonce \

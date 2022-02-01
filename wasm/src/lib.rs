@@ -10,6 +10,7 @@ elrond_wasm_node::wasm_endpoints! {
         init
         buy
         claim
+        claimDistributable
         deposit
         getBuyLimit
         getDistributablePrice

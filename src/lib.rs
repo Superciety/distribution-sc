@@ -47,6 +47,20 @@ pub trait Distribution: pause::PauseModule {
         Ok(())
     }
 
+    #[only_owner]
+    #[endpoint(claimDistributable)]
+    fn claim_distributable_endpoint(&self, amount: BigUint) -> SCResult<()> {
+        let caller = self.blockchain().get_caller();
+        let dist_token_id = self.distributable_token_id().get();
+        let balance = self.blockchain().get_sc_balance(&dist_token_id, 0);
+
+        require!(balance >= amount, "not enough funds");
+
+        self.send().direct(&caller, &dist_token_id, 0, &amount, &[]);
+
+        Ok(())
+    }
+
     #[payable("EGLD")]
     #[endpoint(buy)]
     fn buy_endpoint(&self, #[payment_amount] paid_amount: BigUint) -> SCResult<()> {
