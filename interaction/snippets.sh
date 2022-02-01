@@ -157,3 +157,14 @@ updateBuyLimit() {
         --chain=$CHAIN_ID \
         --send || return
 }
+
+claimDeveloperRewards() {
+    erdpy --verbose contract call ${ADDRESS} \
+        --recall-nonce \
+        --pem=${DEPLOYER} \
+        --gas-limit=6000000 \
+        --function="ClaimDeveloperRewards" \
+        --proxy=$PROXY \
+        --chain=$CHAIN_ID \
+        --send || return
+}
