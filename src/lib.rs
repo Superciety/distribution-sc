@@ -85,6 +85,21 @@ pub trait Distribution: pause::PauseModule {
         Ok(())
     }
 
+    #[payable("*")]
+    #[endpoint(burn)]
+    fn burn_endpoint(
+        &self,
+        #[payment_token] payment_token: TokenIdentifier,
+        #[payment_amount] payment_amount: BigUint,
+    ) -> SCResult<()> {
+        require!(payment_token == self.distributable_token_id().get(), "invalid token");
+
+        self.send().esdt_local_burn(&payment_token, 0, &payment_amount);
+        self.burned_tokens().update(|current| *current += payment_amount);
+
+        Ok(())
+    }
+
     #[view(getDistributableTokenId)]
     #[storage_mapper("distributableToken")]
     fn distributable_token_id(&self) -> SingleValueMapper<TokenIdentifier>;
@@ -96,4 +111,8 @@ pub trait Distribution: pause::PauseModule {
     #[view(getBuyLimit)]
     #[storage_mapper("buyLimit")]
     fn buy_limit(&self) -> SingleValueMapper<BigUint>;
+
+    #[view(getBurnedAmount)]
+    #[storage_mapper("burned_tokens")]
+    fn burned_tokens(&self) -> SingleValueMapper<BigUint>;
 }

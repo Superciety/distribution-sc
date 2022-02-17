@@ -60,7 +60,7 @@ upgrade() {
         --arguments ${DISTRIBUTABLE_TOKEN_ID_HEX} ${DISTRIBUTABLE_TOKEN_PRICE} \
         --recall-nonce \
         --pem=${DEPLOYER} \
-        --gas-limit=20000000 \
+        --gas-limit=50000000 \
         --proxy=${PROXY} \
         --chain=${CHAIN_ID} \
         --send || return
@@ -167,4 +167,24 @@ claimDeveloperRewards() {
         --proxy=$PROXY \
         --chain=$CHAIN_ID \
         --send || return
+}
+
+setTokenBurnRole() {
+    echo "adding ESDTLocalBurn role for ${MANAGER_ADDRESS} ..."
+
+    sc_address="0x$(erdpy wallet bech32 --decode ${ADDRESS})"
+    burn_role_hex="0x$(echo -n 'ESDTRoleLocalBurn' | xxd -p -u | tr -d '\n')"
+
+    erdpy --verbose contract call erd1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u \
+        --function=setSpecialRole \
+        --arguments ${DISTRIBUTABLE_TOKEN_ID_HEX} $sc_address $burn_role_hex \
+        --recall-nonce \
+        --pem=${DEPLOYER} \
+        --gas-limit=60000000 \
+        --proxy=${PROXY} \
+        --chain=${CHAIN_ID} \
+        --send || return
+
+    echo ""
+    echo "local burn role added!"
 }
