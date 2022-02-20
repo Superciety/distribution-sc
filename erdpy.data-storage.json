@@ -4,8 +4,8 @@
     "deploy-transaction": "677ea522f8fcbdc8f63f3462fdefd0f8cbb33731945d7f7be00882d7f8fdf53c"
   },
   "testnet": {
-    "address": "erd1qqqqqqqqqqqqqpgq5gt0hcs9s68qela3ju0tsncuu32w6emc27rs4tcfvp",
-    "deploy-transaction": "f294b20426b46d384ce34b9f55edb4878a1e15518650ab9a752d9775ae8da7cf"
+    "address": "erd1qqqqqqqqqqqqqpgqxuumvlqxzfaxv9x0yhwwcfnf6qr9g3mr27rstmzedu",
+    "deploy-transaction": "06fe8e5e88e8bef6240761099f30c659f3ba76fad66e57bc44974a43537e30f5"
   },
   "mainnet": {
     "address": "erd1qqqqqqqqqqqqqpgqaqysetv6704mmktdyylzh08rtluquhpd27rsdkgh63",

@@ -2,4 +2,4 @@
 
 Mainnet: [erd1qqqqqqqqqqqqqpgqaqysetv6704mmktdyylzh08rtluquhpd27rsdkgh63](https://explorer.elrond.com/accounts/erd1qqqqqqqqqqqqqpgqaqysetv6704mmktdyylzh08rtluquhpd27rsdkgh63)
 
-Testnet: [erd1qqqqqqqqqqqqqpgq5gt0hcs9s68qela3ju0tsncuu32w6emc27rs4tcfvp](https://testnet-explorer.elrond.com/accounts/erd1qqqqqqqqqqqqqpgq5gt0hcs9s68qela3ju0tsncuu32w6emc27rs4tcfvp)
+Testnet: [erd1qqqqqqqqqqqqqpgqxuumvlqxzfaxv9x0yhwwcfnf6qr9g3mr27rstmzedu](https://testnet-explorer.elrond.com/accounts/erd1qqqqqqqqqqqqqpgqxuumvlqxzfaxv9x0yhwwcfnf6qr9g3mr27rstmzedu)
